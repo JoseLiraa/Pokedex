@@ -1,5 +1,5 @@
 # Pokedex
-Pokedex de la primera generación de pokemon con React (consumiendo una API de Pokmon. Usando map, clases, no hook y ciclo de vida ComponentDidMount)
+Pokedex de la primera generación de pokemon con React (consumiendo una API de Pokemon. Usando map, clases, no hook y ciclo de vida ComponentDidMount)
 
 ## Dependencia para correr el proyecto ✒️
 
