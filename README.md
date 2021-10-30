@@ -1,5 +1,5 @@
 # Pokedex
-Servicios streaming ejercicio1dps parcial 2, uso de YoutubePlayer, NavigationContainer, createBottomTabNavigator, Modal, TouchableHighlight
+Pokedex de la primera generación de pokemon con React (usando map, clases, no hook y ciclo de vida ComponentDidMount)
 
 ## Dependencia para correr el proyecto ✒️
 
