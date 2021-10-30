@@ -1,4 +1,5 @@
 import React from 'react';
+import Busqueda from '../components/Busqueda';
 
 class PokemonList extends React.Component{
     state = {
@@ -30,31 +31,83 @@ class PokemonList extends React.Component{
         });
     };
 
+    setPokeInfo=(filterPokemon)=>{
+        this.setState({
+        pokemonInfo:filterPokemon
+        })
+
+    }
+
+    setFiltrado=(filtrado)=>{
+        this.setState({
+        filtrado:filtrado
+        })
+        }
+
+    setpokemonInfoFiltrada=(pokeFiltrado)=>{
+        this.setState({
+        pokemonInfoFiltrada:pokeFiltrado
+        })
+        }
+
 
     render(){
+
+        const {filtrado}=this.state;
+
         return(
             <>
+            <Busqueda
+                pokemonInfo={this.state.pokemonInfo}
+                setPokeInfo={this.setPokeInfo}
+                filtrado={this.state.filtrado}
+                setFiltrado={this.setFiltrado}
+                setpokemonInfoFiltrada={this.setpokemonInfoFiltrada}/>
+
             <div style={{paddingTop:20,paddingBottom:20}}>
                 <div className="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-5">
                 {
-                    this.state.pokemonInfo.map((resultado) => (
-                <div class="col">
-                    <div className="card" style={{backgroundColor:"#17202A"}}>
-                        <div>
-                        <img
-                            src={resultado?.sprites.front_default}
-                            alt="imagen pokemon"
-                            className="card-img-top"
-                        />
-                        </div>
-                        <div className="card-body">
-                        <p className="text-warning text-center"><strong>Nombre: </strong><span className="card-text"> {resultado?.name}</span></p>
-                        <p className="text-warning text-center"><strong>Tipo: </strong><span className="card-text"> {resultado?.types[0].type.name}</span></p>
+                    filtrado ? (<>{
+
+                    this.state.pokemonInfoFiltrada.map((resultado) => (
+                    <div class="col">
+                        <div className="card" style={{backgroundColor:"#17202A"}}>
+                            <div>
+                            <img
+                                src={resultado?.sprites.front_default}
+                                alt="imagen pokemon"
+                                className="card-img-top"
+                            />
+                            </div>
+                            <div className="card-body" style={{fontSize:23}}>
+                            <p className="text-warning text-center"><strong>Nombre: </strong><span className="card-text"> {resultado?.name}</span></p>
+                            <p className="text-warning text-center"><strong>Tipo: </strong><span className="card-text"> {resultado?.types[0].type.name}</span></p>
+                            </div>
                         </div>
                     </div>
-                </div>
+
                 ))
-                }
+                }</>) : (<>{
+
+                    this.state.pokemonInfo.map((resultado) => (
+                    <div class="col">
+                        <div className="card" style={{backgroundColor:"#17202A"}}>
+                            <div>
+                            <img
+                                src={resultado?.sprites.front_default}
+                                alt="imagen pokemon"
+                                className="card-img-top"
+                            />
+                            </div>
+                            <div className="card-body" style={{fontSize:23}}>
+                            <p className="text-warning text-center"><strong>Nombre: </strong><span className="card-text"> {resultado?.name}</span></p>
+                            <p className="text-warning text-center"><strong>Tipo: </strong><span className="card-text"> {resultado?.types[0].type.name}</span></p>
+                            </div>
+                        </div>
+                    </div>
+                ))
+                }</>)}
+
                 </div>
             </div>
         </>
