@@ -1,10 +1,8 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 
 class PokemonList extends React.Component{
     state = {
         pokemonInfo: [],
-        filtro: false,
-        pokemonInfofiltro:[],
     };
 
     async componentDidMount(){
